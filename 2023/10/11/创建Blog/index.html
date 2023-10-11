@@ -169,7 +169,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/Blog/" style="color: #00a596">Blog</a>
+                <a href="/tags/Blog/" style="color: #03a9f4">Blog</a>
             </span>
             
         </span>
@@ -194,27 +194,27 @@
 </blockquote>
 <p>注意改成自己的下载路径，<strong>一定要以管理员身份运行cmd</strong><br>具体方法为win+R输入cmd之后ctrl+shift+enter启动</p>
 <p>找到电脑环境变量的位置<br><strong>win10&amp;win11</strong>：右键此电脑——属性——高级系统设置——高级——环境变量<br><strong>win11还可以</strong>：设置——系统——系统信息——高级系统设置——高级——环境变量<br>新建系统变量创建<strong>NODE_HOME</strong>变量，值为nodejs的根目录的地址<br>例如”E:\nodejs”<br>在系统变量中选择Path变量修改和添加如下属性<br><img src="/2023/10/11/%E5%88%9B%E5%BB%BABlog/%E7%B3%BB%E7%BB%9F%E5%8F%98%E9%87%8F.png"></p>
-<p>之后全局配置淘宝镜像<br><strong>以管理员身份运行cmd</strong><br>输入如下代码<br><code>npm config set registry https://registry.npm.taobao.org</code><br>之后输入<code>npm config ls</code>查看配置<br><img src="/2023/10/11/%E5%88%9B%E5%BB%BABlog/%E5%88%9B%E5%BB%BAblog%5Cnodejs%E9%85%8D%E7%BD%AE.png"><br>至此nodejs安装完成。</p>
+<p>之后全局配置淘宝镜像<br><strong>以管理员身份运行cmd</strong><br>输入如下代码<br><code>npm config set registry https://registry.npm.taobao.org</code><br>之后输入<code>npm config ls</code>查看配置<br><img src="/2023/10/11/%E5%88%9B%E5%BB%BABlog/nodejs%E9%85%8D%E7%BD%AE.png"><br>至此nodejs安装完成。</p>
 <h2 id="4、安装Hexo"><a href="#4、安装Hexo" class="headerlink" title="4、安装Hexo"></a>4、安装Hexo</h2><p>使用cnpm安装nodejs，之前已经配置了淘宝镜像源，只需要在cmd中输入如下指令<br><code>npm install -g cnpm(-g表示全局安装)</code><br>即可安装cnpm</p>
-<p>输入指令<code>cnpm install -g hexo-cli</code>即可安装hexo<br>在cmd中输入命令<code>hexo -v</code>, 可查看安装hexo的版本<br><img src="/2023/10/11/%E5%88%9B%E5%BB%BABlog/%E5%88%9B%E5%BB%BABlog%5Chexo%E7%89%88%E6%9C%AC%E6%9F%A5%E7%9C%8B.png"><br>Hexo安装完成！</p>
-<h2 id="5、配置github"><a href="#5、配置github" class="headerlink" title="5、配置github"></a>5、配置github</h2><h3 id="5-1新建github仓库"><a href="#5-1新建github仓库" class="headerlink" title="5.1新建github仓库"></a>5.1新建github仓库</h3><p>在自己的github中新建一个仓科，命名为”你的github账号名.com.io”（必须是自己的用户命，否组无效）,如下所示<br><img src="/2023/10/11/%E5%88%9B%E5%BB%BABlog/%E5%88%9B%E5%BB%BABlog%5Cgithub%E6%96%B0%E5%BB%BA%E4%BB%93%E5%BA%93.png"><br>ps.仓库创建成功不会立即生效，需要过一段时间，大概10-30分钟，或者更久</p>
+<p>输入指令<code>cnpm install -g hexo-cli</code>即可安装hexo<br>在cmd中输入命令<code>hexo -v</code>, 可查看安装hexo的版本<br><img src="/2023/10/11/%E5%88%9B%E5%BB%BABlog/hexo%E7%89%88%E6%9C%AC%E6%9F%A5%E7%9C%8B.png"><br>Hexo安装完成！</p>
+<h2 id="5、配置github"><a href="#5、配置github" class="headerlink" title="5、配置github"></a>5、配置github</h2><h3 id="5-1新建github仓库"><a href="#5-1新建github仓库" class="headerlink" title="5.1新建github仓库"></a>5.1新建github仓库</h3><p>在自己的github中新建一个仓科，命名为”你的github账号名.com.io”（必须是自己的用户命，否组无效）,如下所示<br><img src="/2023/10/11/%E5%88%9B%E5%BB%BABlog/github%E6%96%B0%E5%BB%BA%E4%BB%93%E5%BA%93.png"><br>ps.仓库创建成功不会立即生效，需要过一段时间，大概10-30分钟，或者更久</p>
 <h3 id="5-2配置SSH免密登录"><a href="#5-2配置SSH免密登录" class="headerlink" title="5.2配置SSH免密登录"></a>5.2配置SSH免密登录</h3><ol>
 <li><p>首先打开电脑文件夹，找到<code>C:\Users\用户名\ .ssh</code>文件夹并删除(如果没有，则无需操作)</p>
 </li>
 <li><p>在<code>C:\Users\用户名</code>文件夹下右键打开<strong>Git Bash Here</strong>输入命令: <code>ssh-keygen -t rsa -C &quot;你的github登录邮箱&quot; </code>生成.ssh秘钥，输入后敲三次回车,生成了一个新的 <code>C:\Users\您的用户名\ .ssh</code>文件夹，打开这个文件夹，找到<code>.ssh\id_rsa.pub</code>文件，记事本打开并复制里面的内容。</p>
 </li>
-<li><p>打开github主页,进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key，把复制的内容粘贴进去，title 随便填，保存即可，我们的公钥就添加成功了，设置好如下图:<br><img src="/2023/10/11/%E5%88%9B%E5%BB%BABlog/%E5%88%9B%E5%BB%BABlog%5C%E6%B7%BB%E5%8A%A0SSH.png"></p>
+<li><p>打开github主页,进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key，把复制的内容粘贴进去，title 随便填，保存即可，我们的公钥就添加成功了，设置好如下图:<br><img src="/2023/10/11/%E5%88%9B%E5%BB%BABlog/%E6%B7%BB%E5%8A%A0SSH.png"></p>
 </li>
-<li><p>检测是否设置成功只需要打开Git Bush ，输入命令<code>ssh -T git@github.com</code>，若显示如下<br><img src="/2023/10/11/%E5%88%9B%E5%BB%BABlog/%E5%88%9B%E5%BB%BABlog%5Cssh%E9%85%8D%E7%BD%AE%E6%88%90%E5%8A%9F.png"><br>则配置成功。</p>
+<li><p>检测是否设置成功只需要打开Git Bush ，输入命令<code>ssh -T git@github.com</code>，若显示如下<br><img src="/2023/10/11/%E5%88%9B%E5%BB%BABlog/ssh%E9%85%8D%E7%BD%AE%E6%88%90%E5%8A%9F.png"><br>则配置成功。</p>
 </li>
 <li><p>ssh配置完成后需要在Git Bash中配置如下内容<br><code>git config --global user.name &quot;Github username&quot;</code>注意是 username, 而非昵称<br><code>git config --global user.email &quot;xxx@qq.com&quot;</code>填写 github 注册邮箱</p>
 </li>
 </ol>
 <p>至此github仓库配置完成！</p>
 <h2 id="6、使用Hexo搭建Blog"><a href="#6、使用Hexo搭建Blog" class="headerlink" title="6、使用Hexo搭建Blog"></a>6、使用Hexo搭建Blog</h2><h3 id="6-1新建Blog文件夹并配置"><a href="#6-1新建Blog文件夹并配置" class="headerlink" title="6.1新建Blog文件夹并配置"></a>6.1新建Blog文件夹并配置</h3><ol>
-<li><p>在电脑中新建一个文件夹，因为是创建个人博客，所以命名为Blog，读者也可随意命名。<br>由于未来更新博客或者优化博客界面要使用到这个文件夹，所以不建议在任意位置创建，可以创建在自己设置的资料盘，以方便以后取用。<br>注意文件夹的使用权限，确保user有写入与修改的权限<br>在输入指令之前注意查看，否则会导致指令安装失败。<br><img src="/2023/10/11/%E5%88%9B%E5%BB%BABlog/%E5%88%9B%E5%BB%BABlog%5CBlog%E6%96%87%E4%BB%B6%E5%A4%B9%E6%9D%83%E9%99%90.png"></p>
+<li><p>在电脑中新建一个文件夹，因为是创建个人博客，所以命名为Blog，读者也可随意命名。<br>由于未来更新博客或者优化博客界面要使用到这个文件夹，所以不建议在任意位置创建，可以创建在自己设置的资料盘，以方便以后取用。<br>注意文件夹的使用权限，确保user有写入与修改的权限<br>在输入指令之前注意查看，否则会导致指令安装失败。<br><img src="/2023/10/11/%E5%88%9B%E5%BB%BABlog/Blog%E6%96%87%E4%BB%B6%E5%A4%B9%E6%9D%83%E9%99%90.png"></p>
 </li>
-<li><p>在文件夹目录下右键打开Git Bash，输入指令<code>hexo init</code>初始化。<br>可能会失败几次，可能是连接不稳定的原因，多试几次就可以。<br>hexo会下载一些东西到当前文件夹，文件夹目录如下所示<br><img src="/2023/10/11/%E5%88%9B%E5%BB%BABlog/%E5%88%9B%E5%BB%BABlog%5CBlog%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9B%AE%E5%BD%95.png"></p>
+<li><p>在文件夹目录下右键打开Git Bash，输入指令<code>hexo init</code>初始化。<br>可能会失败几次，可能是连接不稳定的原因，多试几次就可以。<br>hexo会下载一些东西到当前文件夹，文件夹目录如下所示<br><img src="/2023/10/11/%E5%88%9B%E5%BB%BABlog/Blog%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9B%AE%E5%BD%95.png"></p>
 </li>
 <li><p>命令<code>hexo g</code>会在 public 文件夹下生成相关的 .html 文件，这些文件将来需要提交到 Github 上</p>
 </li>
