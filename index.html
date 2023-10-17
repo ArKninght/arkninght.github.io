@@ -1,177 +1,154 @@
 
 <!DOCTYPE html>
-<html lang="zh-CN ">
-
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>记录美好生活 || 多为转载记录整合，可能突然有一天就没了</title>
-    <meta name="author" content="Yozora">
-    <meta name="description" content="作者很懒... ">
-    <meta name="keywords" content=" ">
-    <link rel="icon" href="/images/avatar.png">
-    <link rel="stylesheet" href="/css/antd.min.css">
-    
-    <link rel="stylesheet" href="/css/maiden-theme.css">
-    
-    <script src="/js/vue.js"></script>
-    <script src="/js/antd.min.js"></script>
+    <meta charset="utf-8" />
+    <title>记录美好生活</title>
+    <meta name="author" content="Yozora" />
+    <meta name="description" content="作者很懒..." />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+<script src="/js/lib/home.js"></script>
+
+<link rel="stylesheet" href="/css/main.css" />
+
 <meta name="generator" content="Hexo 6.3.0"></head>
-
 <body>
-
-    <div id="loading"
-        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
-        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
-        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
-        <div
-            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
-            <div id="loadcontent"
-                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
-                <div>
-                    <h2>LOADING...</h2>
-                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
-                    <div>
-                        <img src="/dancingkitty.gif" alt="loading">
-                    </div>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div id="layout">
-        <transition name="into">
-            <div v-show="show_page" style="display: none;">
-                <div id="menu_show">
-                     
-<nav id="menu">
-    <div class="desktop-menu">
-        <a href="/">
-            <span class="title">记录美好生活</span>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>记录美好生活</span>
         </a>
         
         <a href="/">
-            <span>
-                <a-icon type="home" theme="filled" />
-            </span>
-            <span>home</span>
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
         </a>
         
         <a href="/about">
-            <span>
-                <a-icon type="idcard" theme="filled" />
-            </span>
-            <span>about</span>
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
         </a>
         
         <a href="/archives">
-            <span>
-                <a-icon type="folder" theme="filled" />
-            </span>
-            <span>archives</span>
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
         </a>
         
-        <a href="/like/categories">
-            <span>
-                <a-icon type="book" theme="filled" />
-            </span>
-            <span>categories</span>
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
         </a>
         
-        <a href="/like/tags">
-            <span>
-                <a-icon type="tags" theme="filled" />
-            </span>
-            <span>tags</span>
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
         </a>
         
-        <a target="_blank" rel="noopener" href="https://en.korilin.com">
-            <span>
-                <a-icon type="compass" theme="filled" />
-            </span>
-            <span>英文博客</span>
-        </a>
-        
-    </div>
-
-    <div :class="'phone-menu ' + menu_show" id="phone-menu">
-        <div :class="'title'" @click="menu_show=!menu_show">
-            <span style="margin-right: 10px;">
-                <a-icon type="appstore" theme="filled" />
-            </span>
-            <span>记录美好生活</span>
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;记录美好生活</span>
         </div>
-        <div class="items" v-show="menu_show">
-            
-            <a href="/">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="home" theme="filled" />
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
                     </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
-                </div>
-            </a>
-            
-            <a href="/about">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="idcard" theme="filled" />
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
                     </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
-                </div>
-            </a>
-            
-            <a href="/archives">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="folder" theme="filled" />
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
                     </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
-                </div>
-            </a>
-            
-            <a href="/like/categories">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="book" theme="filled" />
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
                     </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
-                </div>
-            </a>
-            
-            <a href="/like/tags">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="tags" theme="filled" />
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
                     </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
-                </div>
-            </a>
-            
-            <a target="_blank" rel="noopener" href="https://en.korilin.com">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="compass" theme="filled" />
-                    </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">英文博客</div>
-                </div>
-            </a>
-            
-        </div>
-        <div class="curtain" v-show="menu_show"></div>
-    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
 
-</nav>
-                </div>
-
-                <div id="main">
-                    <div id="home-head" style=background-image:url('home.jpg')>
-    <script>
-        var menu = document.getElementById("menu")
-        menu.className += " menu-color"
-    </script>
-     
-    <div id="home-info" class="home-info" @click="home_click">
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div id="home-head">
+    <div id="home-background" ref="homeBackground" data-images="/images/background1.jpg,/images/background2.jpg"></div>
+    <div id="home-info" @click="homeClick">
         <span class="loop"></span>
         <span class="loop"></span>
         <span class="loop"></span>
@@ -184,388 +161,278 @@
             </div>
         </span>
     </div>
-     
 </div>
-
-
-
-<div id="home-posts-wrap" class=>
+<div id="home-posts-wrap" true ref="homePostsWrap">
     <div id="home-posts">
-
-        <div id="posts">
-            
-
-<div class="post">
-
-    <a href="/2023/10/17/MarkDown/">
-        <h2>
-            MarkDown
-        </h2>
-    </a>
-
-    <div class="category-and-date">
-
         
 
+<div class="post">
+    <a href="/2023/10/17/MarkDown/">
+        <h2 class="post-title">MarkDown</h2>
+    </a>
+    <div class="category-and-date">
+        
         <span class="date">
             <span class="icon">
-                <a-icon type="calendar" theme="filled" />
+                <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
             2023/10/17
         </span>
-
+        
+        
     </div>
-
-    <div class="excerpt">
+    <div class="description">
         <div class="content" v-pre>
             
             <h1 id="MarkDown语法"><a href="#MarkDown语法" class="headerlink" title="MarkDown语法"></a>MarkDown语法</h1><p>本条记录一些用markdown书写过程中遇到的一些官方文档中未找到的问题<br></p>
             
-            
         </div>
     </div>
-
     <div class="post-tags">
         
         <span class="icon">
-            <a-icon type="tags" theme="filled" />
+            <i class="fa-solid fa-tags fa-fw"></i>
         </span>
+        
         
         
         <span class="tag">
             
-            <a href="/tags/语法" style=color:#ffa2c4>
-                语法
-            </a>
+            <a href="/tags/%E8%AF%AD%E6%B3%95/" style="color: #03a9f4">语法</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/计算机" style=color:#ffa2c4>
-                计算机
-            </a>
+            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" style="color: #00a596">计算机</a>
         </span>
         
     </div>
-
-    <a href="/2023/10/17/MarkDown/ " class="go-post">
-        阅读全文
-    </a>
+    <a href="/2023/10/17/MarkDown/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-
-    <a href="/2023/10/17/同相反相放大器/">
-        <h2>
-            同相反相放大器
-        </h2>
+    <a href="/2023/10/17/%E5%90%8C%E7%9B%B8%E5%8F%8D%E7%9B%B8%E6%94%BE%E5%A4%A7%E5%99%A8/">
+        <h2 class="post-title">同相反相放大器</h2>
     </a>
-
     <div class="category-and-date">
-
         
-
         <span class="date">
             <span class="icon">
-                <a-icon type="calendar" theme="filled" />
+                <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
             2023/10/17
         </span>
-
+        
+        
     </div>
-
-    <div class="excerpt">
+    <div class="description">
         <div class="content" v-pre>
             
             <h1 id="同相放大电路和反相放大电路"><a href="#同相放大电路和反相放大电路" class="headerlink" title="同相放大电路和反相放大电路"></a>同相放大电路和反相放大电路</h1><p>放大电路是在模电学习中非常重要的一个知识点。同相放大电路和反相放大电路也是在接触运算放大器电路中最简单、最基础也是非常重要的两个电路。</p>
 <p>但是对于同相反相的定义、各自的电路特性以及优缺点本人还是缺少一些明显的认知，所以在此记录一些学习的知识。<br></p>
             
-            
         </div>
     </div>
-
     <div class="post-tags">
         
         <span class="icon">
-            <a-icon type="tags" theme="filled" />
+            <i class="fa-solid fa-tags fa-fw"></i>
         </span>
+        
         
         
         <span class="tag">
             
-            <a href="/tags/电路" style=color:#ff7d73>
-                电路
-            </a>
+            <a href="/tags/%E7%94%B5%E8%B7%AF/" style="color: #03a9f4">电路</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/运算放大器" style=color:#00bcd4>
-                运算放大器
-            </a>
+            <a href="/tags/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/" style="color: #00bcd4">运算放大器</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/模电" style=color:#1bccbc>
-                模电
-            </a>
+            <a href="/tags/%E6%A8%A1%E7%94%B5/" style="color: #00a596">模电</a>
         </span>
         
     </div>
-
-    <a href="/2023/10/17/同相反相放大器/ " class="go-post">
-        阅读全文
-    </a>
+    <a href="/2023/10/17/%E5%90%8C%E7%9B%B8%E5%8F%8D%E7%9B%B8%E6%94%BE%E5%A4%A7%E5%99%A8/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-
-    <a href="/2023/10/11/创建Blog/">
-        <h2>
-            创建Blog
-        </h2>
+    <a href="/2023/10/11/%E5%88%9B%E5%BB%BABlog/">
+        <h2 class="post-title">创建Blog</h2>
     </a>
-
     <div class="category-and-date">
-
         
-
         <span class="date">
             <span class="icon">
-                <a-icon type="calendar" theme="filled" />
+                <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
             2023/10/11
         </span>
-
+        
+        
     </div>
-
-    <div class="excerpt">
+    <div class="description">
         <div class="content" v-pre>
             
             <h1 id="从头开始创建自己的博客"><a href="#从头开始创建自己的博客" class="headerlink" title="从头开始创建自己的博客"></a>从头开始创建自己的博客</h1><p>为了防止本人换电脑、电脑突然格式化、收藏的博客创建文章都失效了，写一篇博客记录自己创建个人静态博客的过程。<br></p>
             
-            
         </div>
     </div>
-
     <div class="post-tags">
         
         <span class="icon">
-            <a-icon type="tags" theme="filled" />
+            <i class="fa-solid fa-tags fa-fw"></i>
         </span>
+        
         
         
         <span class="tag">
             
-            <a href="/tags/Blog" style=color:#00bcd4>
-                Blog
-            </a>
+            <a href="/tags/Blog/" style="color: #ffa2c4">Blog</a>
         </span>
         
     </div>
-
-    <a href="/2023/10/11/创建Blog/ " class="go-post">
-        阅读全文
-    </a>
+    <a href="/2023/10/11/%E5%88%9B%E5%BB%BABlog/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-
     <a href="/2023/10/08/hello-world/">
-        <h2>
-            Hello World
-        </h2>
+        <h2 class="post-title">Hello World</h2>
     </a>
-
     <div class="category-and-date">
-
         
-
         <span class="date">
             <span class="icon">
-                <a-icon type="calendar" theme="filled" />
+                <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
             2023/10/8
         </span>
-
+        
+        
     </div>
-
-    <div class="excerpt">
+    <div class="description">
         <div class="content" v-pre>
             
             <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.<br></p>
             
-            
         </div>
     </div>
-
     <div class="post-tags">
         
         
+        
     </div>
-
-    <a href="/2023/10/08/hello-world/ " class="go-post">
-        阅读全文
-    </a>
+    <a href="/2023/10/08/hello-world/" class="go-post">阅读全文</a>
 </div>
 
 
-             
-<div class="page-current">
-
-    <div class="prev">
-        
-    </div>
-
-    <div class="page-index">
-
-        
-
-        <span class="current">
-            1
-        </span>
-
-        
-
-    </div>
-
-    <div class="next">
-        
-    </div>
-
+        <div class="page-current">
+    
+    <span class="current">1</span>
+    
+    
+    
+    
 </div>
 
-        </div>
     </div>
     
     <div id="home-card">
-        <a-affix :offset-top="card_top">
-    <a-card class="card-style" style="width: 300px">
+        <div id="card-style">
+    <div id="card-div">
         <div class="avatar">
-            <img src="images/avatar.png " alt="头像">
+            <img src="/images/avatar.jpg" alt="avatar" />
         </div>
-        <div class="name">
-            Yozora
+        <div class="name">Yozora</div>
+        <div class="description">
+            <p>ArKninght</p>
+
         </div>
-        <div class="descriptions">
-            
-            <div class="description">
-                正しさなんてもの
-            </div>
-            
-            <div class="description">
-                人のモノサシによって変わる
-            </div>
-            
-        </div>
+        
         <div class="icon-links">
             
             <span class="icon-link">
-                <a target="_blank" rel="noopener" href="https://github.com/korilin">
-
-                    
-                    <a-icon type="github"
-                        theme="filled" />
-                    
+                <a target="_blank" rel="noopener" href="https://github.com/ArKninght">
+                    <i
+                        class="fa-brands fa-github fa-fw"
+                    ></i>
                 </a>
             </span>
             
             <span class="icon-link">
-                <a target="_blank" rel="noopener" href="https://twitter.com/korilin_dev">
-
-                    
-                    <a-icon type="twitter"
-                        theme="" />
-                    
+                <a href="/email">
+                    <i
+                        class="fa-solid fa-envelope fa-fw"
+                    ></i>
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://twitter.com/A_knights152">
+                    <i
+                        class="fa-brands fa-twitter fa-fw"
+                    ></i>
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://space.bilibili.com/398241690?spm_id_from=333.1007.0.0">
+                    <i
+                        class="fa-brands fa-bilibili fa-fw"
+                    ></i>
                 </a>
             </span>
             
         </div>
+        
+        
         <div class="friend-links">
             
             <div class="friend-link">
-                <a target="_blank" rel="noopener" href="https://en.korilin.com">
-                    英文技术博客
-                </a>
-            </div>
-            
-            <div class="friend-link">
-                <a target="_blank" rel="noopener" href="https://jp.korilin.com">
-                    日语记录博客
-                </a>
+                <a target="_blank" rel="noopener" href="https://argvchs.github.io">Argvchs</a>
             </div>
             
         </div>
-    </a-card>
-</a-affix>
+        
+    </div>
+</div>
+
     </div>
     
 </div>
-                     
-<footer id="footer">
-    <div class="footer-wrap">
+
+            <footer id="footer">
+    <div id="footer-wrap">
         <div>
-            © 2018 - 2023 记录美好生活
-            <span class="footer-icon">
-                <a-icon type="flag" theme="filled" /></span>
-            @Yozora
+            &copy;
+            2022 - 2023 记录美好生活
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;Yozora
         </div>
-        <div></div>
-        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
-                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
         
     </div>
-
 </footer>
 
-<script src="/js/highlight.min.js"></script>
-<script src="/js/particle.js"></script>
-                </div>
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
             </div>
         </transition>
+        
     </div>
-
-    <script>
-    new Vue({
-        el: "#layout",
-        data: {
-            show_page: false,
-            onload_menu: false,
-            menu_show: false,
-            card_top: 100
-        },
-        created: function () {
-            var that = this
-            window.onload = function () {
-                that.show_page = true
-                document.getElementById("loadcontent").style.opacity = 0
-                setTimeout(function () {
-                    document.getElementById("loadleft").style.width = 0
-                    document.getElementById("loadright").style.width = 0
-                }, 300)
-                setTimeout(function () {
-                    document.getElementById("loading").style = "display:none"
-                }, 600)
-            }
-        },
-        mounted: function () {
-            var that = this
-            window.addEventListener('scroll', function (e) {
-                that.menu_show = false
-            })
-        },
-        methods: {
-            home_click: function () {
-                window.scrollTo({
-                    top: window.innerHeight - 80,
-                    behavior: "smooth",
-                });
-            }
-        }
-    })
-</script>
-
+    <script src="/js/main.js"></script>
+    
 </body>
-
 </html>
