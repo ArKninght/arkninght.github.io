@@ -184,44 +184,7 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <h1 id="MarkDown语法"><a href="#MarkDown语法" class="headerlink" title="MarkDown语法"></a>MarkDown语法</h1><p>本条记录一些用markdown书写过程中遇到的一些官方文档中未找到的问题</p>
-<ol>
-<li><a href="#1%E5%B1%85%E4%B8%AD%E9%97%AE%E9%A2%98">居中问题</a></li>
-<li><a href="#2%E5%AD%97%E4%BD%93%E9%97%AE%E9%A2%98">字体问题</a></li>
-<li><a href="#3%E7%BC%A9%E8%BF%9B%E9%97%AE%E9%A2%98">缩进问题</a></li>
-</ol>
-<h2 id="1、居中问题"><a href="#1、居中问题" class="headerlink" title="1、居中问题"></a>1、居中问题</h2><p>markdown语法本身并不能直接设置居中，但markdown文件支持html语法，所以直接利用html语法居中文字及图片。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">图片居中</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;图片地址&quot;</span> <span class="attr">width</span> = <span class="string">500</span> <span class="attr">height</span> = <span class="string">300</span> /&gt;</span> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">文字居中</span><br><span class="line"><span class="tag">&lt;<span class="name">center</span>&gt;</span>居中文字<span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>如下为显示效果:</p>
-<div align="center"> <img src="/2023/10/17/MarkDown/example_picture.png" width="500" height="300"> </div>
-<center>Example Picture</center>
-
-<h2 id="2、字体问题"><a href="#2、字体问题" class="headerlink" title="2、字体问题"></a>2、字体问题</h2><p>markdown语法本身也不支持字体改变，所以也需要使用html语法</p>
-<h3 id="改变字体大小"><a href="#改变字体大小" class="headerlink" title="改变字体大小"></a>改变字体大小</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">size</span>=<span class="string">1</span>&gt;</span>字体大小size=1<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">size</span>=<span class="string">3</span>&gt;</span>字体大小size=3<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">size</span>=<span class="string">5</span>&gt;</span>字体大小size=5<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>使用参数 <strong>size</strong> 。可取值为1-7</p>
-<p>如下为显示效果<br><font size="1">字体大小size&#x3D;1</font><br><font size="3">字体大小size&#x3D;3</font><br><font size="5">字体大小size&#x3D;5</font></p>
-<h3 id="改变字体颜色"><a href="#改变字体颜色" class="headerlink" title="改变字体颜色"></a>改变字体颜色</h3><p>1、英文字母</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">red</span>&gt;</span>红色<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">&quot;blue&quot;</span>&gt;</span>蓝色<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">Yellow</span>&gt;</span>黄色<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">YellowGreen</span>&gt;</span>黄绿色<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>显示效果<br><font color="red">红色</font><br><font color="blue">蓝色</font><br><font color="Yellow">黄色</font><br><font color="YellowGreen">黄绿色</font></p>
-<p>2、十六进制编码</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">#ff0000</span>&gt;</span>红色<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">#00ff00</span>&gt;</span>绿色<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">#0000ff</span>&gt;</span>蓝色<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">#dc9fb4</span>&gt;</span>抚子<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><font color="#ff0000">红色</font><br><font color="#00ff00">绿色</font><br><font color="#0000ff">蓝色</font><br><font color="#dc9fb4">抚子</font></p>
-<p>使用参数<strong>color</strong>。更推荐十六进制颜色显示，对于一些不常见的颜色有很好的适应性，并且还可以依据个人喜好改变RGB选择自己喜欢的颜色。英文表示更加简单易用，记住常见的几种颜色英文即可。</p>
-<h3 id="改变字体类型"><a href="#改变字体类型" class="headerlink" title="改变字体类型"></a>改变字体类型</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;font face=&quot;黑体&quot;&gt;黑体&lt;/font&gt;</span><br><span class="line">&lt;font face=&quot;宋体&quot;&gt;宋体&lt;/font&gt;</span><br><span class="line">&lt;font face=&quot;仿宋&quot;&gt;仿宋&lt;/font&gt;</span><br><span class="line">&lt;font face=&quot;幼圆&quot;&gt;幼圆&lt;/font&gt;</span><br><span class="line">&lt;font face=&quot;楷书&quot;&gt;楷书&lt;/font&gt;</span><br><span class="line">&lt;font face=&quot;华文行楷&quot;&gt;华文行楷&lt;/font&gt;</span><br><span class="line">&lt;font face=&quot;华文隶书&quot;&gt;华文隶书&lt;/font&gt;</span><br><span class="line">&lt;font face=&quot;华文新魏&quot;&gt;华文新魏&lt;/font&gt;</span><br><span class="line">&lt;font face=&quot;华文彩云&quot;&gt;华文彩云&lt;/font&gt;</span><br><span class="line">&lt;font face=&quot;华文琥珀&quot;&gt;华文琥珀&lt;/font&gt;</span><br></pre></td></tr></table></figure>
-
-<p>显示效果如下所示<br><font face="黑体">黑体</font><br><font face="宋体">宋体</font><br><font face="仿宋">仿宋</font><br><font face="幼圆">幼圆</font><br><font face="楷书">楷书</font><br><font face="华文行楷">华文行楷</font><br><font face="华文隶书">华文隶书</font><br><font face="华文新魏">华文新魏</font><br><font face="华文彩云">华文彩云</font><br><font face="华文琥珀">华文琥珀</font></p>
-<p>使用参数<strong>face</strong>。注意，字体类型的设置只能在电脑上才能显示字体效果，在手机上无法显示字体类型。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;font size=5 color=red face=&quot;华文彩云&quot;&gt;华文彩云&lt;/font&gt;</span><br></pre></td></tr></table></figure>
-
-<p><font size="5" color="blue" face="宋体">宋体</font></p>
-<p>混合使用时注意参数之间加上空格。</p>
-<h2 id="3、缩进问题"><a href="#3、缩进问题" class="headerlink" title="3、缩进问题"></a>3、缩进问题</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">&amp;ensp;</span> or <span class="symbol">&amp;#8194;</span>   表示一个半角的空格</span><br><span class="line"><span class="symbol">&amp;emsp;</span> or <span class="symbol">&amp;#8195;</span>   表示一个全角的空格</span><br><span class="line"><span class="symbol">&amp;emsp;</span><span class="symbol">&amp;emsp;</span>        两个全角的空格（用的比较多）</span><br><span class="line"><span class="symbol">&amp;nbsp;</span> or <span class="symbol">&amp;#160;</span>    不断行的空白格</span><br></pre></td></tr></table></figure>
-
-<p>如下为显示效果<br>&ensp;示例文字<br>&emsp;示例文字<br>&emsp;&emsp; 示例文字<br>&nbsp;示例文字</p>
-<h2 id="4、页面内部跳转"><a href="#4、页面内部跳转" class="headerlink" title="4、页面内部跳转"></a>4、页面内部跳转</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">文本内容</span>](<span class="link">#需要跳转的标题</span>)</span><br></pre></td></tr></table></figure>
-<p>示例如下，可以跳转到本文的第一个标题<br><a href="#1%E5%B1%85%E4%B8%AD%E9%97%AE%E9%A2%98">居中问题</a></p>
-
+            <h1 id="MarkDown语法"><a href="#MarkDown语法" class="headerlink" title="MarkDown语法"></a>MarkDown语法</h1><p>本条记录一些用markdown书写过程中遇到的一些官方文档中未找到的问题<br></p>
             
         </div>
     </div>
@@ -235,12 +198,12 @@
         
         <span class="tag">
             
-            <a href="/tags/%E8%AF%AD%E6%B3%95/" style="color: #03a9f4">语法</a>
+            <a href="/tags/%E8%AF%AD%E6%B3%95/" style="color: #ffa2c4">语法</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" style="color: #00bcd4">计算机</a>
+            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" style="color: #ff7d73">计算机</a>
         </span>
         
     </div>
@@ -266,27 +229,7 @@
         <div class="content" v-pre>
             
             <h1 id="同相放大电路和反相放大电路"><a href="#同相放大电路和反相放大电路" class="headerlink" title="同相放大电路和反相放大电路"></a>同相放大电路和反相放大电路</h1><p>放大电路是在模电学习中非常重要的一个知识点。同相放大电路和反相放大电路也是在接触运算放大器电路中最简单、最基础也是非常重要的两个电路。</p>
-<p>但是对于同相反相的定义、各自的电路特性以及优缺点本人还是缺少一些明显的认知，所以在此记录一些学习的只是。</p>
-<h2 id="1、同相反相的概念"><a href="#1、同相反相的概念" class="headerlink" title="1、同相反相的概念"></a>1、同相反相的概念</h2><p>比较直观的解释就是就是输出波与输入波之间是否相差了180度的相位差。<br>更加直接的定义为：<strong>输入端的极性和输出端是同一极性的就是同相放大器，而输入端的极性和输出端相反极性的则称为反相放大器。</strong></p>
-<div align="center"> <img src="/2023/10/17/%E5%90%8C%E7%9B%B8%E5%8F%8D%E7%9B%B8%E6%94%BE%E5%A4%A7%E5%99%A8/同相放大器.png" width="500" height="300"> </div>
-<center>同相放大器</center>
-
-<p>如上所示，在放大器正相输入断加入正向输入，输出端产生正向输出，输出端输出与输入端输入同相，构成<strong>同相放大器</strong>；同时在<strong>负相端（非输入端）产生正向反馈</strong>，构成负反馈。</p>
-<div align="center"> <img src="/2023/10/17/%E5%90%8C%E7%9B%B8%E5%8F%8D%E7%9B%B8%E6%94%BE%E5%A4%A7%E5%99%A8/反相放大器.png" width="500" height="300"> </div>
-<center>反相放大器</center>
-
-<p>如上所示，在放大器反相输入端加入正向输入，输出端产生反向输出，输出端输出与输入端输入反相，构成<strong>反相放大器</strong>；同时在<strong>负相端（输入端）产生负向反馈</strong>，构成负反馈。</p>
-<h2 id="2、同反相放大电路优缺点"><a href="#2、同反相放大电路优缺点" class="headerlink" title="2、同反相放大电路优缺点"></a>2、同反相放大电路优缺点</h2><h3 id="同相放大电路"><a href="#同相放大电路" class="headerlink" title="同相放大电路"></a>同相放大电路</h3><p><strong>优点</strong>：输入阻抗和运放的输入阻抗相等，接近无穷大，即<strong>输入阻抗极大</strong>。</p>
-<p><strong>缺点</strong>：放大电路没有虚地，因此有<strong>较大的共模电压</strong>，抗干扰能力相对较差，使用时<strong>要求运放有较高的<em>共模抑制比</em></strong>；另一个小缺点就是放大倍数只能大于1。</p>
-<h3 id="反相放大电路"><a href="#反相放大电路" class="headerlink" title="反相放大电路"></a>反相放大电路</h3><p><strong>优点</strong>：两个输入端电位始终近似为零（同相端接地，反相端虚地），只有差模信号，<strong>抗干扰能力强</strong>。</p>
-<p><strong>缺点</strong>：<strong>输入阻抗很小</strong>，等于信号到输入端的串联电阻的阻值。</p>
-<p>所以在选择时就需要按情况选择，例如</p>
-<ol>
-<li>在需要电路输入阻抗很大时选择同相放大器</li>
-<li>需要更宽的输入信号带宽时选择反相放大器，因为同相放大器受制于运放共模输入电压的范围</li>
-<li>在需要相同放大倍数的情况下，尽量选择小一些的电阻，可以减小输入偏置电流和分布电容的影响；而如果又要注重电路功耗，则需在大电阻之间折中。</li>
-</ol>
-
+<p>但是对于同相反相的定义、各自的电路特性以及优缺点本人还是缺少一些明显的认知，所以在此记录一些学习的知识。<br></p>
             
         </div>
     </div>
@@ -300,17 +243,17 @@
         
         <span class="tag">
             
-            <a href="/tags/%E7%94%B5%E8%B7%AF/" style="color: #ff7d73">电路</a>
+            <a href="/tags/%E7%94%B5%E8%B7%AF/" style="color: #03a9f4">电路</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/" style="color: #03a9f4">运算放大器</a>
+            <a href="/tags/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/" style="color: #ff7d73">运算放大器</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E6%A8%A1%E7%94%B5/" style="color: #00bcd4">模电</a>
+            <a href="/tags/%E6%A8%A1%E7%94%B5/" style="color: #00a596">模电</a>
         </span>
         
     </div>
@@ -349,7 +292,7 @@
         
         <span class="tag">
             
-            <a href="/tags/Blog/" style="color: #03a9f4">Blog</a>
+            <a href="/tags/Blog/" style="color: #ff7d73">Blog</a>
         </span>
         
     </div>
