@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <title>MarkDown | 记录美好生活</title>
+    <meta name="author" content="Yozora" />
+    <meta name="description" content="作者很懒..." />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>记录美好生活</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;记录美好生活</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>MarkDown</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/17
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/%E8%AF%AD%E6%B3%95/" style="color: #00bcd4">语法</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" style="color: #ffa2c4">计算机</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="MarkDown语法"><a href="#MarkDown语法" class="headerlink" title="MarkDown语法"></a>MarkDown语法</h1><p>本条记录一些用markdown书写过程中遇到的一些官方文档中未找到的问题<br> <span id="more"></span></p>
+<ol>
+<li><a href="#1%E5%B1%85%E4%B8%AD%E9%97%AE%E9%A2%98">居中问题</a></li>
+<li><a href="#2%E5%AD%97%E4%BD%93%E9%97%AE%E9%A2%98">字体问题</a></li>
+<li><a href="#3%E7%BC%A9%E8%BF%9B%E9%97%AE%E9%A2%98">缩进问题</a></li>
+<li><a href="#4%E9%A1%B5%E9%9D%A2%E5%86%85%E9%83%A8%E8%B7%B3%E8%BD%AC">页面内部跳转</a></li>
+</ol>
+<h2 id="1、居中问题"><a href="#1、居中问题" class="headerlink" title="1、居中问题"></a>1、居中问题</h2><p>markdown语法本身并不能直接设置居中，但markdown文件支持html语法，所以直接利用html语法居中文字及图片。</p>
+<pre><code>图片居中
+&lt;div align=&quot;center&quot;&gt; &lt;img src=&quot;图片地址&quot; width = 500 height = 300 /&gt; &lt;/div&gt;
+文字居中
+&lt;center&gt;居中文字&lt;/center&gt;
+</code></pre>
+<p>如下为显示效果:</p>
+<div align="center"> <img src="/2023/10/17/MarkDown/example_picture.png" width="500" height="300"> </div>
+<center>Example Picture</center>
+
+<h2 id="2、字体问题"><a href="#2、字体问题" class="headerlink" title="2、字体问题"></a>2、字体问题</h2><p>markdown语法本身也不支持字体改变，所以也需要使用html语法</p>
+<h3 id="改变字体大小"><a href="#改变字体大小" class="headerlink" title="改变字体大小"></a>改变字体大小</h3><pre><code class="html">&lt;font size=1&gt;字体大小size=1&lt;/font&gt;
+&lt;font size=3&gt;字体大小size=3&lt;/font&gt;
+&lt;font size=5&gt;字体大小size=5&lt;/font&gt;
+</code></pre>
+<p>使用参数 <strong>size</strong> 。可取值为1-7</p>
+<p>如下为显示效果<br><font size="1">字体大小size&#x3D;1</font><br><font size="3">字体大小size&#x3D;3</font><br><font size="5">字体大小size&#x3D;5</font></p>
+<h3 id="改变字体颜色"><a href="#改变字体颜色" class="headerlink" title="改变字体颜色"></a>改变字体颜色</h3><p>1、英文字母</p>
+<pre><code class="html">&lt;font color=red&gt;红色&lt;/font&gt;
+&lt;font color=&quot;blue&quot;&gt;蓝色&lt;/font&gt;
+&lt;font color=Yellow&gt;黄色&lt;/font&gt;
+&lt;font color=YellowGreen&gt;黄绿色&lt;/font&gt;
+</code></pre>
+<p>显示效果<br><font color="red">红色</font><br><font color="blue">蓝色</font><br><font color="Yellow">黄色</font><br><font color="YellowGreen">黄绿色</font></p>
+<p>2、十六进制编码</p>
+<pre><code class="html">&lt;font color=#ff0000&gt;红色&lt;/font&gt;
+&lt;font color=#00ff00&gt;绿色&lt;/font&gt;
+&lt;font color=#0000ff&gt;蓝色&lt;/font&gt;
+&lt;font color=#dc9fb4&gt;抚子&lt;/font&gt;
+</code></pre>
+<p><font color="#ff0000">红色</font><br><font color="#00ff00">绿色</font><br><font color="#0000ff">蓝色</font><br><font color="#dc9fb4">抚子</font></p>
+<p>使用参数<strong>color</strong>。更推荐十六进制颜色显示，对于一些不常见的颜色有很好的适应性，并且还可以依据个人喜好改变RGB选择自己喜欢的颜色。英文表示更加简单易用，记住常见的几种颜色英文即可。</p>
+<h3 id="改变字体类型"><a href="#改变字体类型" class="headerlink" title="改变字体类型"></a>改变字体类型</h3><pre><code class="html">&lt;font face=&quot;黑体&quot;&gt;黑体&lt;/font&gt;
+&lt;font face=&quot;宋体&quot;&gt;宋体&lt;/font&gt;
+&lt;font face=&quot;仿宋&quot;&gt;仿宋&lt;/font&gt;
+&lt;font face=&quot;幼圆&quot;&gt;幼圆&lt;/font&gt;
+&lt;font face=&quot;楷书&quot;&gt;楷书&lt;/font&gt;
+&lt;font face=&quot;华文行楷&quot;&gt;华文行楷&lt;/font&gt;
+&lt;font face=&quot;华文隶书&quot;&gt;华文隶书&lt;/font&gt;
+&lt;font face=&quot;华文新魏&quot;&gt;华文新魏&lt;/font&gt;
+&lt;font face=&quot;华文彩云&quot;&gt;华文彩云&lt;/font&gt;
+&lt;font face=&quot;华文琥珀&quot;&gt;华文琥珀&lt;/font&gt;
+</code></pre>
+<p>显示效果如下所示<br><font face="黑体">黑体</font><br><font face="宋体">宋体</font><br><font face="仿宋">仿宋</font><br><font face="幼圆">幼圆</font><br><font face="楷书">楷书</font><br><font face="华文行楷">华文行楷</font><br><font face="华文隶书">华文隶书</font><br><font face="华文新魏">华文新魏</font><br><font face="华文彩云">华文彩云</font><br><font face="华文琥珀">华文琥珀</font></p>
+<p>使用参数<strong>face</strong>。注意，字体类型的设置只能在电脑上才能显示字体效果，在手机上无法显示字体类型。</p>
+<pre><code class="html">&lt;font size=5 color=red face=&quot;华文彩云&quot;&gt;华文彩云&lt;/font&gt;
+</code></pre>
+<p><font size="5" color="blue" face="宋体">宋体</font></p>
+<p>混合使用时注意参数之间加上空格。</p>
+<h2 id="3、缩进问题"><a href="#3、缩进问题" class="headerlink" title="3、缩进问题"></a>3、缩进问题</h2><pre><code class="html">    &amp;ensp; or &amp;#8194;   表示一个半角的空格
+    &amp;emsp; or &amp;#8195;   表示一个全角的空格
+    &amp;emsp;&amp;emsp;        两个全角的空格（用的比较多）
+    &amp;nbsp; or &amp;#160;    不断行的空白格
+</code></pre>
+<p>如下为显示效果<br>&ensp;示例文字<br>&emsp;示例文字<br>&emsp;&emsp; 示例文字<br>&nbsp;示例文字</p>
+<h2 id="4、页面内部跳转"><a href="#4、页面内部跳转" class="headerlink" title="4、页面内部跳转"></a>4、页面内部跳转</h2><pre><code class="markdown">    [文本内容](#需要跳转的标题)
+</code></pre>
+<p>示例如下，可以跳转到本文的第一个标题<br><a href="#1%E5%B1%85%E4%B8%AD%E9%97%AE%E9%A2%98">居中问题</a></p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 记录美好生活
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;Yozora
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>
