@@ -175,7 +175,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/Blog/" style="color: #ff7d73">
+                <a href="/tags/Blog/" style="color: #00a596">
                     Blog
                 </a>
             </span>
@@ -237,8 +237,18 @@
 <li><p>在Blog文件夹目录下，打开Git Bash并输入指令<code>hexo d</code>将本地 blog 推送到 github 远程仓库，推送成功后，即可通过 https:&#x2F;&#x2F;自己的uesername.github.io&#x2F; 访问个人博客了！例如博主的即为(<a target="_blank" rel="noopener" href="https://arkninght.github.io/">https://arkninght.github.io/</a>)</p>
 </li>
 </ol>
-<h2 id="7、博客界面的美化"><a href="#7、博客界面的美化" class="headerlink" title="7、博客界面的美化"></a>7、博客界面的美化</h2><p>hexo官方提供了很多主题，地址: <a target="_blank" rel="noopener" href="https://hexo.io/themes/">Themes | Hexo</a>, 选择喜欢的主题并点击即可跳转至github,阅读使用说明优化自己的主题。</p>
-<h2 id="8、向github上传文件"><a href="#8、向github上传文件" class="headerlink" title="8、向github上传文件"></a>8、向github上传文件</h2><pre><code class="language-git">任务：向github上传文件
+<h2 id="7、博客界面的美化"><a href="#7、博客界面的美化" class="headerlink" title="7、博客界面的美化"></a>7、博客界面的美化</h2><p>hexo官方提供了很多主题，地址: <a target="_blank" rel="noopener" href="https://hexo.io/themes/">Themes | Hexo</a>, 选择喜欢的主题并点击即可跳转至github,阅读使用说明优化自己的主题。<br>本博客使用<a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">$particlex$</a>进行界面优化，需要注意该主题的代码高亮部分与Hexo本身的代码高亮并不兼容，在配置文件中需要进行一定的更改。</p>
+<h2 id="8、通过hexo命令进行博客的更新"><a href="#8、通过hexo命令进行博客的更新" class="headerlink" title="8、通过hexo命令进行博客的更新"></a>8、通过hexo命令进行博客的更新</h2><p>在前文<strong>6</strong>中将本地博客与github中的仓库进行了关联，通过以下命令进行博客的更新</p>
+<pre><code class="language-git">hexo cl	# 清空本地的缓存
+hexo d	# 将本地文件生成为本地缓存
+hexo g	# 将本地缓存推送到github仓库中
+</code></pre>
+<p>需要注意使用hexo命令上传本地缓存为已经编译好的.html文件，当文档中存在图片时，如果不进行一定的设置则会导致网页中的图片显示失败。具体设置如下:<br>首先在*_config.yml<em>文件中需要将<strong>post_asset_folder</strong>设置为*<em>true</em></em>，将markdown文件与与之相关的专门存储图片的文件夹一同编译<br><img src="/2023/10/11/%E5%88%9B%E5%BB%BABlog/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E7%9B%B8%E5%85%B31.png"><br>之后使用npm下载相关插件，通过该插件即可将markdown中的图片路径从相对路径改为绝对路径，因为在.html文件中图片一般都是用绝对路径进行索引。</p>
+<pre><code>npm install https://github.com/CodeFalling/hexo-asset-image --save
+</code></pre>
+<p>最后在编写markdown文件时需要注意在图片的路径之前不要加任何路径，因为在github仓库中图片是和网页的.html文件存储在同一文件夹下的，因此在之前不需要设置任何路径以确保图片能够成功显示。<br><img src="/2023/10/11/%E5%88%9B%E5%BB%BABlog/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E7%9B%B8%E5%85%B32.png"></p>
+<h2 id="9、向github上传文件"><a href="#9、向github上传文件" class="headerlink" title="9、向github上传文件"></a>9、向github上传文件</h2><p>更新远程仓库同样可以用git命令，此步骤代替hexo命令，但是在最近的尝试中已经忘记如何使用了，所以有待进一步研究。</p>
+<pre><code class="language-git">任务：向github上传文件
 方法一：本地没有git仓库
 git clone HTTPS                         将远程仓库克隆到本地空间
 
