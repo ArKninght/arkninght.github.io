@@ -175,7 +175,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/linux/" style="color: #03a9f4">
+                <a href="/tags/linux/" style="color: #ff7d73">
                     linux
                 </a>
             </span>
@@ -202,28 +202,28 @@
 </ul>
 <p>之后按照提示重启电脑即可。</p>
 <h2 id="3、安装WSL并将其移动到其他盘-博主为E盘"><a href="#3、安装WSL并将其移动到其他盘-博主为E盘" class="headerlink" title="3、安装WSL并将其移动到其他盘(博主为E盘)"></a>3、安装WSL并将其移动到其他盘(博主为E盘)</h2><p><strong>1、设置WSL的默认版本</strong></p>
-<pre><code>wsl --set-default-version 2
+<pre><code class="language-PowerShell">wsl --set-default-version 2
 </code></pre>
 <p><strong>2、创建文件夹</strong><br>在目标盘创建文件夹<br><img src="/2025/09/01/Windows%E9%85%8D%E7%BD%AEWSL/%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9.png"><br><strong>3、下载并Linux系统</strong><br>利用如下指令查看WSL可以安装的Linux发行版本</p>
-<pre><code>wsl --list --online
+<pre><code class="language-PowerShell">wsl --list --online
 </code></pre>
 <p>博主安装的是<code>Ubuntu-20.04</code>，安装时可能会有进度条卡住的情况，耐心等待。</p>
-<pre><code>wsl --install -d Ubuntu-20.04
+<pre><code class="language-PowerShell">wsl --install -d Ubuntu-20.04
 </code></pre>
 <p>在安装之后正常会出现用户注册界面，博主在此处遇到了报错<br><img src="/2025/09/01/Windows%E9%85%8D%E7%BD%AEWSL/wsl%E5%AE%89%E8%A3%85%E6%8A%A5%E9%94%99.png"><br>这是由于没有安装最新的内核，需要对WSL进行手动更新，下载最新的内核。<br>下载链接：<a target="_blank" rel="noopener" href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi</a><br>安装完成后再次打开即会出现用户注册界面，输入用户名密码注册即可。之后按下<code>Ctrl+D</code>退出登录.<br><strong>4、导出Linux系统至指定文件夹</strong></p>
-<pre><code>wsl --export Ubuntu-20.04 E:\WSL\Ubuntu-20.04\Ubuntu-20.04.tar
+<pre><code class="language-PowerShell">wsl --export Ubuntu-20.04 E:\WSL\Ubuntu-20.04\Ubuntu-20.04.tar
 </code></pre>
 <p>该指令会将<code>Ubuntu-20.04</code>打包至目标文件夹，使用<code>ls</code>指令可以查看是否成功导出。</p>
-<pre><code>wsl --unregister Ubuntu-20.04
+<pre><code class="language-PowerShell">wsl --unregister Ubuntu-20.04
 </code></pre>
 <p>注销原本安装在<code>C</code>盘的的<code>Ubuntu-20.04</code>。<br><strong>5、将导出的系统安装到指定文件夹</strong></p>
-<pre><code>wsl --import Ubuntu-20.04 E:\WSL\Ubuntu-20.04 E:\WSL\Ubuntu-20.04\Ubuntu-20.04.tar --version 2
+<pre><code class="language-PowerShell">wsl --import Ubuntu-20.04 E:\WSL\Ubuntu-20.04 E:\WSL\Ubuntu-20.04\Ubuntu-20.04.tar --version 2
 </code></pre>
 <p>该指令会将<code>Ubuntu-20.0</code>安装到<code>E</code>盘指定目录而不是默认的<code>C</code>盘。安装完成之后会将WSL2发行版的文件存储在一个**虚拟磁盘映像文件（ext4.vhdx）**中。<br><img src="/2025/09/01/Windows%E9%85%8D%E7%BD%AEWSL/Ubuntu20-04%E7%9A%84%E7%A3%81%E7%9B%98.png"><br>安装完成之后即可启动WSL</p>
-<pre><code>wsl -d Ubuntu-20.04
+<pre><code class="language-PowerShell">wsl -d Ubuntu-20.04
 </code></pre>
 <p>默认登陆为<code>root</code>用户登录<br><img src="/2025/09/01/Windows%E9%85%8D%E7%BD%AEWSL/%E9%BB%98%E8%AE%A4%E7%99%BB%E5%BD%95%E7%94%A8%E6%88%B7root.png"><br>使用<code>su - pby</code>登录到先前创建的用户<code>pby</code>，同时赋予用户管理员权限<code>usermod -aG sudo pby</code>。<br><strong>6、修改默认登录用户</strong><br>以管理员身份运行<code>Power Shell</code>，并运行如下指令</p>
-<pre><code>ubuntu2004 config --default-user pby
+<pre><code class="language-PowerShell">ubuntu2004 config --default-user pby
 </code></pre>
 <p>输入<code>wsl</code>发现默认以用户<code>pby</code>登录<br><img src="/2025/09/01/Windows%E9%85%8D%E7%BD%AEWSL/%E9%BB%98%E8%AE%A4%E7%99%BB%E5%BD%95%E7%94%A8%E6%88%B7pby.png"><br>至此则在Windows系统上安装完成Linux子系统。<br>关于conda环境的配置则参照之后的博文。</p>
 
