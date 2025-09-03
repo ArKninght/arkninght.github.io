@@ -3,7 +3,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8" />
-    <title>同相反相放大器 | 记录美好生活</title>
+    <title>WSL编译环境配置 | 记录美好生活</title>
     <meta name="author" content="Yozora" />
     <meta name="description" content="作者很懒..." />
     <meta name="keywords" content="" />
@@ -156,14 +156,14 @@
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
             <div class="article">
     <div>
-        <h1>同相反相放大器</h1>
+        <h1>WSL编译环境配置</h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2023/10/17
+            2025/9/2
         </span>
         
         
@@ -175,22 +175,22 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E7%94%B5%E8%B7%AF/" style="color: #00bcd4">
-                    电路
+                <a href="/tags/conda/" style="color: #00a596">
+                    conda
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/" style="color: #ffa2c4">
-                    运算放大器
+                <a href="/tags/python/" style="color: #ff7d73">
+                    python
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/%E6%A8%A1%E7%94%B5/" style="color: #00a596">
-                    模电
+                <a href="/tags/linux/" style="color: #03a9f4">
+                    linux
                 </a>
             </span>
             
@@ -199,27 +199,64 @@
     </div>
     
     <div class="content" v-pre>
-        <h1 id="同相放大电路和反相放大电路"><a href="#同相放大电路和反相放大电路" class="headerlink" title="同相放大电路和反相放大电路"></a>同相放大电路和反相放大电路</h1><p>放大电路是在模电学习中非常重要的一个知识点。同相放大电路和反相放大电路也是在接触运算放大器电路中最简单、最基础也是非常重要的两个电路。</p>
-<p>但是对于同相反相的定义、各自的电路特性以及优缺点本人还是缺少一些明显的认知，所以在此记录一些学习的知识。<br> <span id="more"></span></p>
-<h2 id="1、同相反相的概念"><a href="#1、同相反相的概念" class="headerlink" title="1、同相反相的概念"></a>1、同相反相的概念</h2><p>比较直观的解释就是就是输出波与输入波之间是否相差了180度的相位差。<br>更加直接的定义为：<strong>输入端的极性和输出端是同一极性的就是同相放大器，而输入端的极性和输出端相反极性的则称为反相放大器。</strong></p>
-<div align="center"> <img src="/2023/10/17/%E5%90%8C%E7%9B%B8%E5%8F%8D%E7%9B%B8%E6%94%BE%E5%A4%A7%E5%99%A8/同相放大器.png" width="500" height="300"> </div>
-<center>同相放大器</center>
-
-<p>如上所示，在放大器正相输入断加入正向输入，输出端产生正向输出，输出端输出与输入端输入同相，构成<strong>同相放大器</strong>；同时在<strong>负相端（非输入端）产生正向反馈</strong>，构成负反馈。</p>
-<div align="center"> <img src="/2023/10/17/%E5%90%8C%E7%9B%B8%E5%8F%8D%E7%9B%B8%E6%94%BE%E5%A4%A7%E5%99%A8/反相放大器.png" width="500" height="300"> </div>
-<center>反相放大器</center>
-
-<p>如上所示，在放大器反相输入端加入正向输入，输出端产生反向输出，输出端输出与输入端输入反相，构成<strong>反相放大器</strong>；同时在<strong>负相端（输入端）产生负向反馈</strong>，构成负反馈。</p>
-<h2 id="2、同反相放大电路优缺点"><a href="#2、同反相放大电路优缺点" class="headerlink" title="2、同反相放大电路优缺点"></a>2、同反相放大电路优缺点</h2><h3 id="同相放大电路"><a href="#同相放大电路" class="headerlink" title="同相放大电路"></a>同相放大电路</h3><p><strong>优点</strong>：输入阻抗和运放的输入阻抗相等，接近无穷大，即<strong>输入阻抗极大</strong>。</p>
-<p><strong>缺点</strong>：放大电路没有虚地，因此有<strong>较大的共模电压</strong>，抗干扰能力相对较差，使用时<strong>要求运放有较高的<em>共模抑制比</em></strong>；另一个小缺点就是放大倍数只能大于1。</p>
-<h3 id="反相放大电路"><a href="#反相放大电路" class="headerlink" title="反相放大电路"></a>反相放大电路</h3><p><strong>优点</strong>：两个输入端电位始终近似为零（同相端接地，反相端虚地），只有差模信号，<strong>抗干扰能力强</strong>。</p>
-<p><strong>缺点</strong>：<strong>输入阻抗很小</strong>，等于信号到输入端的串联电阻的阻值。</p>
-<p>所以在选择时就需要按情况选择，例如</p>
-<ol>
-<li>在需要电路输入阻抗很大时选择同相放大器</li>
-<li>需要更宽的输入信号带宽时选择反相放大器，因为同相放大器受制于运放共模输入电压的范围</li>
-<li>在需要相同放大倍数的情况下，尽量选择小一些的电阻，可以减小输入偏置电流和分布电容的影响；而如果又要注重电路功耗，则需在大电阻之间折中。</li>
-</ol>
+        <h1 id="WSL编译环境配置"><a href="#WSL编译环境配置" class="headerlink" title="WSL编译环境配置"></a>WSL编译环境配置</h1><p>在安装完成WSL之后当然要使用Linux的编程环境，本文主要介绍一下博主配置环境的过程以及遇到的一些问题。</p>
+<span id="more"></span>
+<p><strong>1、conda安装</strong><br>启动WSL，在用户目录下创建Download，进入Download文件夹</p>
+<pre><code class="language-Power">mkdir Download
+cd Download
+</code></pre>
+<p>在Download目录下下载<code>conda</code>的安装包</p>
+<pre><code class="language-Power">wget https://repo.anaconda.com/archive/Anaconda3-2024.02-1-Linux-x86_64.sh
+</code></pre>
+<p>输入指令安装，一路enter，然后输入yes，再按一下enter，最后再输入yes</p>
+<pre><code class="language-Power">sh Anaconda3-2024.02-1-Linux-x86_64.sh # 安装刚刚下载的文件
+</code></pre>
+<p>此时使用<code>conda</code>指令会显示<code>conda: command not found</code>，退出当前登录重启Power Shell并重启WSL，显示<code>(base) 用户名@DESKTOP-UA3C67F:~$</code>即代表<code>conda</code>安装成功。</p>
+<p>conda在安装完成之后在每次启动wsl时会自动激活，输入<code>conda config --set auto_activate_base false</code>指令以关闭启动自动激活激活</p>
+<p>利用<code>conda</code>创建新的环境，用于深度学习编程。</p>
+<pre><code class="language-Power">conda create -n cuda118 python==3.8 # 创建cuda118环境并配置python3.8
+conda activate cuda118 # 激活刚刚创建的环境
+</code></pre>
+<p><strong>2、<strong>CUDA</strong>安装</strong><br>对Ubuntu进行换源(或者直接添加)，方便国内网络访问时仍然可以以较快的速度下载。打开配置文件</p>
+<pre><code class="language-Power">sudo vim /etc/apt/sources.list # sudo是管理员命令，即以管理员的身份运行该指令
+</code></pre>
+<p><code>i</code>进入编辑模式，将下列源复制进刚刚打开的源列表(可以将其他源都注释掉，博主这里没有选择注释)，按<code>esc</code>退出编辑模式，输入<code>:wq</code>保存并退出。</p>
+<pre><code class="language-Power">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse
+deb http://security.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
+</code></pre>
+<p>之后对软件包进行更新和升级。</p>
+<pre><code class="language-Power">sudo apt update
+sudo apt upgrade
+</code></pre>
+<p>安装<code>gcc</code>相关的软件包。</p>
+<pre><code class="language-Power">sudo apt install build-essential
+</code></pre>
+<p>访问链接<a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-11-8-0-download-archive?target_os=Linux&target_arch=x86_64&Distribution=WSL-Ubuntu&target_version=2.0&target_type=deb_local">CUDA Toolkit 11.8 Downloads | NVIDIA Developer</a>下载<code>cuda11.8</code>，选项在网页中已经选好。<br><img src="/2025/09/02/WSL%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/cuda11.8%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%971.png"><br><img src="/2025/09/02/WSL%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/cuda11.8%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%972.png"><br>此处选择使用源进行本地安装，按顺序输入网页中的指令即可成功安装<code>cuda11.8</code>。<br>在安装完成之后打开环境变量，</p>
+<pre><code class="language-Power">sudo vim ~/.bashrc
+</code></pre>
+<p>按<code>i</code>进入编辑模式，添加cuda的环境，按<code>esc</code>并输入<code>:wq</code>保存编辑</p>
+<pre><code class="language-Power">export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-11.8/lib64
+export PATH=$PATH:/usr/local/cuda-11.8/bin
+export CUDA_HOME=$CUDA_HOME:/usr/local/cuda-11.8
+</code></pre>
+<p>输入<code>source  ~/.bashrc</code>刷新环境变量，输入<code>nvcc -V</code>查看cuda是否已经安装成功。若成功安装并配置环境则会显示当前cuda版本。<br><img src="/2025/09/02/WSL%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/cuda%E7%89%88%E6%9C%AC.png"><br><strong>3、cudnn安装</strong><br>访问<a target="_blank" rel="noopener" href="https://developer.nvidia.com/rdp/cudnn-archive">cuDNN Archive | NVIDIA Developer</a>选择适合的<code>cudnn版本</code>。博主选择了<code>8.9.7</code>版本，将文件下载到本地中并移动到WSL2系统中。这里建议移动到<code>/home/用户/Download/</code>文件夹下(即在下载cuda时创建的文件夹)。<br><img src="/2025/09/02/WSL%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/cudnn%E7%89%88%E6%9C%AC.png"><br>索引到压缩包对应的目录，按序输入如下指令，解压压缩包，并将其中的文件复制到对应的cuda文件夹中进行文件的替换。</p>
+<pre><code class="language-Power">sudo tar -xvf cudnn-linux-x86_64-8.9.7.29_cuda11-archive.tar.xz
+cd cudnn-linux-x86_64-8.9.7.29_cuda11-archive/
+sudo cp -r lib/* /usr/local/cuda-11.8/lib64/
+sudo cp -r include/* /usr/local/cuda-11.8/include/
+sudo chmod a+r /usr/local/cuda-11.8/lib64/libcudnn*
+sudo chmod a+r /usr/local/cuda-11.8/include/cudnn*
+</code></pre>
+<p>输入如下指令验证是否安装成功</p>
+<pre><code class="language-Power">cat /usr/local/cuda-11.8/include/cudnn_version.h | grep CUDNN_MAJOR -A 2
+</code></pre>
+<p>显示如下输出则为安装成功。<br><img src="/2025/09/02/WSL%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/cudnn%E5%AE%89%E8%A3%85.png"><br><strong>4、Torch安装</strong><br>激活之前创建的<code>cuda118</code>环境，在环境中安装Torch。<br>从官网找到下载链接以前的<a target="_blank" rel="noopener" href="https://pytorch.org/get-started/previous-versions/">PyTorch 版本 |PyTorch的</a><br>博主这里选择的是<code>torch2.2</code>版本，输入官网中的安装指令即可开始安装。</p>
+<pre><code class="language-PowerShell">conda install pytorch==2.2.2 torchvision==0.17.2 torchaudio==2.2.2 pytorch-cuda=11.8 -c pytorch -c nvidia
+</code></pre>
+<p>测试是否安装成功，若显示如下结果则代表torch成功安装。<br><img src="/2025/09/02/WSL%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/torch%E5%AE%89%E8%A3%85.png"></p>
+<p>使用conda命令下载torch时会发现下载速度较慢并且容易断开链接，一种方法是通过更换下载源来解决问题。但由于conda的国内镜像需要配置的网站比较多，博主又很懒，所以直接使用科学上网解决问题，但是WSL默认使用<code>NAT</code>模式，与Win的网络不互通，因此在科学上网方面也需要一定的配置。</p>
 
     </div>
     
